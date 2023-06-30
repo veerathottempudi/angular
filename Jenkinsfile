@@ -8,9 +8,10 @@ pipeline {
       steps {
         sh 'npm install'
         sh 'npm run build'
+        sh 'npm run deploy'
       }
     }  
-    stage('Hello') {
+    stage('AWS cred verify') {
       steps {
         withCredentials([aws(accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'aws-cred', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY')]) {
           sh '''
