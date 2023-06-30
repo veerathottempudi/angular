@@ -8,7 +8,6 @@ pipeline {
       steps {
         sh 'npm install'
         sh 'npm run build'
-        sh 'npm run deploy'
       }
     }  
     stage('AWS cred verify') {
@@ -17,6 +16,7 @@ pipeline {
           sh '''
             aws --version
             aws ec2 describe-instances
+            aws s3 sync dist/angular/ s3://bermtec32practice
           '''
         }
       }
