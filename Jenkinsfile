@@ -10,7 +10,7 @@ pipeline {
         sh 'npm run build'
       }
     }  
-    stage('AWS s3 upload) {
+    stage('AWS s3') {
       steps {
         withCredentials([aws(accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'aws-cred', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY')]) {
           sh '''
