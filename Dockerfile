@@ -8,5 +8,5 @@ RUN npm run build --prod
 
 #stage 2
 FROM nginx:alpine
-EXPOSE 4200
+
 COPY --from=node /app/dist/angular /usr/share/nginx/html
