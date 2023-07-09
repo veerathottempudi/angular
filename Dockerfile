@@ -1,5 +1,5 @@
 #stage 1
-FROM node:latest as node
+FROM node:16.20.1-bullseye as builder
 WORKDIR /app
 COPY . .
 RUN npm install
